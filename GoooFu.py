@@ -51,10 +51,10 @@ def main():
     #print Session.info()
     #print Session.read()
     try:
-		for j in search(query, tld="com", num=5, stop=1, pause=4):
+		for j in search(query, tld="co.uk", num=5, stop=1, pause=5):
 			print(j)
 			f.write('<p> <a href="' + j + '">' + j + '</a> </p>' + '\n')
-			sleep(randint(0.5,1.5))
+			#sleep(randint(0.5,1.5))
 
     except:
 		print "HTTP Error"
@@ -65,10 +65,10 @@ def main():
     f.write('<h1>Site: ' + searchSite + ' & Page: ' + searchPage + ' search output:</h1>')
     query2 = 'inurl:' + searchPage + ' ' + 'site:' + searchSite
     try:
-		for i in search(query2, tld="com", num=5, stop=1, pause=4):
+		for i in search(query2, tld="co.au", num=5, stop=1, pause=5):
 			print(i)
 			f.write('<p> <a href="' + i + '">' + i + '</a> </p>' + '\n')
-			sleep(randint(1.0,1.5))
+			#sleep(randint(1.0,1.5))
 
     except:
 		print "HTTP Error"
@@ -79,10 +79,10 @@ def main():
     f.write('<h1>Site: ' + searchSite + ' & File type: ' + fileType + ' search output:</h1>')
     query4 = 'site:' + searchSite + 'filetype:' + fileType
     try:
-		for l in search(query4, tld="com", num=5, stop=1, pause=4):
+		for l in search(query4, tld="co.za", num=5, stop=1, pause=5):
 			print(l)
 			f.write('<p> <a href="' + l + '">' + l + '</a> </p>' + '\n')
-			sleep(randint(1.0,1.5))
+			#sleep(randint(1.0,1.5))
 
     except:
 		print "HTTP Error"
@@ -104,10 +104,10 @@ def main():
     f.write('<h1>Intitle search output:</h1>')
     query6 = 'intitle:' + searchString
     try:
-		for n in search(query6, tld="com", num=5, stop=1, pause=4):
+		for n in search(query6, tld="co.vi", num=5, stop=1, pause=5):
 			print(n)
 			f.write('<p> <a href="' + n + '">' + n + '</a> </p>' + '\n')
-			sleep(randint(0.5,1.9))
+			#sleep(randint(0.5,1.9))
 
     except:
 		print "HTTP Error"
