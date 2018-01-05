@@ -24,12 +24,11 @@ except ImportError:
 	print("\nModule(s) not found. Install prerequisites & try again!\nUse 'pip install module_name' to install missing prerequisites")
  
 # INFORMATION
-NAME		= "Gooo-Fu"
-VERSION		= "1.0"
-AUTHOR		= "Author: B. Alex John"
-TWITTER     = "@Praetorian_GRD"
+NAME		= "GoooFu"
+AUTHOR		= "B. Alex John"
+TWITTER		= "@Praetorian_GRD"
 GITHUB		= "Github: https://github.com/west-wind/GoooFu"
-LINKEDIN    = "LinkedIn: https://linkedin.com/in/alexsean"
+LINKEDIN	= "LinkedIn: https://linkedin.com/in/alexsean"
 
 # MAIN()
 def main():
@@ -37,19 +36,22 @@ def main():
 	
     print "\n\\\\\\\ Welcome to GoooFu //////// \n"
     print "WARNING: Executing this script multiple times may cause Google to block your IP address"
+    # FILE CREATION --------------------------------------------------------------------------------
     fName = str(raw_input("Enter filename to save output to: "))
     fileName = fName + '.html'
     f = open(fileName,"w+")
     print "Search results for 'site' & 'string' directive: \n"
+    # READING VALUES -------------------------------------------------------------------------------
     searchSite = str(raw_input("Enter the URL: "))
     searchString = str(raw_input("Enter your search string: "))
+    searchPage = str(raw_input("\nEnter the page you want to check for: "))
+    fileType = str(raw_input("\nEnter filetype to search: "))
+    # SEARCH SCRIPT FOLLOWS ------------------------------------------------------------------------
     print "\nPlease wait. Fetching  .. .."
     f.write('<h1>Site: ' + searchSite + ' & String: ' + searchString + ' search output:</h1>')
     query = 'site:' + searchSite + ' ' + searchString
     #br = mechanize.Browser()
     #Session = br.open("https://www.google.com/")
-    #print Session.info()
-    #print Session.read()
     try:
 		for j in search(query, tld="co.uk", num=5, stop=1, pause=5):
 			print(j)
@@ -60,7 +62,6 @@ def main():
 		print "HTTP Error"
 	
     print "\nSearch results with 'inurl' directive: "
-    searchPage = str(raw_input("\nEnter the page you want to check for: "))
     print "\nPlease wait. Fetching  .. .."
     f.write('<h1>Site: ' + searchSite + ' & Page: ' + searchPage + ' search output:</h1>')
     query2 = 'inurl:' + searchPage + ' ' + 'site:' + searchSite
@@ -74,7 +75,6 @@ def main():
 		print "HTTP Error"
 	
     print "\nFiletype search on supplied URL: "
-    fileType = str(raw_input("\nEnter filetype to search: "))
     print "\nPlease wait. Fetching  .. .."
     f.write('<h1>Site: ' + searchSite + ' & File type: ' + fileType + ' search output:</h1>')
     query4 = 'site:' + searchSite + 'filetype:' + fileType
@@ -87,19 +87,19 @@ def main():
     except:
 		print "HTTP Error"
 		
-    #print "\nExecuting 'allintitle' search:"
-    #print "\nPlease wait. Fetching  .. .."
-    #f.write('<h1>Allintitle search output:</h1>')
-    #query5 = 'allintitle:' + searchString
-    #try:
-	#	for m in search(query5, tld="com", num=5, stop=1, pause=4):
-	#		print(m)
-	#		f.write('<p> <a href="' + m + '">' + m + '</a> </p>' + '\n')
+    print "\nExecuting search string 'allintitle' search:"
+    print "\nPlease wait. Fetching  .. .."
+    f.write('<h1>Allintitle search output:</h1>')
+    query5 = 'allintitle:' + searchString
+    try:
+		for m in search(query5, tld="co.in", num=5, stop=1, pause=4):
+			print(m)
+			f.write('<p> <a href="' + m + '">' + m + '</a> </p>' + '\n')
 
-    #except:
-	#	print "HTTP Error"
+    except:
+		print "HTTP Error"
 	
-    print "\nExecuting 'intitle' search:"
+    print "\nExecuting search string 'intitle' search:"
     print "\nPlease wait. Fetching  .. .."
     f.write('<h1>Intitle search output:</h1>')
     query6 = 'intitle:' + searchString
@@ -113,7 +113,7 @@ def main():
 		print "HTTP Error"
     f.close()
     print "\nOutput has been saved to %s.html" %fName
-    print "\nThank you for using Gooo-Fu. To contribute https://github.com/west-wind/GoooFu"
+    print "\nThank you for using GoooFu. To contribute https://github.com/west-wind/GoooFu"
     print "\nExiting..."
   except KeyboardInterrupt:
     sys.exit(0)
